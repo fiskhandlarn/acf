@@ -171,13 +171,44 @@ class Field
     }
 
     /**
+     * Get wrapper configuration array.
+     *
+     * @return array
+     */
+    public function getWrapper(): array
+    {
+        $wrapper = [];
+
+        if ($this->config->has('wrapper')) {
+            $wrapper = $this->config->get('wrapper');
+        }
+
+        $shorthands = [
+            'class' => 'wrapper_class',
+            'id' => 'wrapper_id',
+            'width' => 'wrapper_width',
+        ];
+
+        foreach ($shorthands as $key => $shorthand) {
+            if ($this->config->has($shorthand)) {
+                $wrapper[$key] = $this->config->get($shorthand);
+                $this->config->remove($shorthand);
+            }
+        }
+
+        return $wrapper;
+    }
+
+    /**
      * Return the field as array.
      *
      * @return array
      */
     public function toArray(): array
     {
-        $config = [];
+        $config = [
+            'wrapper' => $this->getWrapper(),
+        ];
 
         if ($this->config->has('key')) {
             $config['key'] = $this->getKey();

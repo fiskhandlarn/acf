@@ -180,6 +180,21 @@ class FieldTest extends TestCase
         $field->toArray();
     }
 
+    public function testGetWrapper()
+    {
+        $field = acf_text([
+            'name' => 'title',
+            'label' => 'Title',
+            'wrapper_width' => 50,
+        ]);
+
+        $this->assertSame([
+            'wrapper' => [
+                'width' => 50
+            ]
+        ], $field->toArray());
+    }
+
     protected function getField()
     {
         $field = acf_image([
