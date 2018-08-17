@@ -190,8 +190,8 @@ class FieldTest extends TestCase
 
         $this->assertSame([
             'wrapper' => [
-                'width' => 50
-            ]
+                'width' => 50,
+            ],
         ], $field->toArray());
     }
 
