@@ -649,7 +649,7 @@ class Select extends Field
 
 ## Custom Fields
 
-If you want to create custom field classes you may extend the [base field class](src/Fields/Field.php). You may also import [available setting traits](src/Fields/Settings) in order to add common methods such as `required()` and `intstructions()`.
+If you want to create custom field classes you may extend the [base field class](src/Fields/Field.php). You may also import [available setting traits](src/Fields/Settings) in order to add common methods such as `required()` and `instructions()`.
 
 ```php
 namespace App\Fields;
